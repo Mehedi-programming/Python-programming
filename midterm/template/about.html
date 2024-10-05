@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './asset/css/about.css' %}">
+</head>
+<body>
+    <h1>About Information Tittle</h1>
+    <form action="{% url 'about_insert' %}" method="POST">
+        {% csrf_token %}
+        <label for="">Name</label>
+        <input type="text" name="name"><br><br>
+        <label for="">Age</label>
+        <input type="text" name="age"><br><br>
+        <label for="">Occupation</label>
+        <input type="text" name="occupation"><br><br>
+        <label for="">Phone</label>
+        <input type="text" name="phone"><br><br>
+        <label for="">Email</label>
+        <input type="text" name="email"><br><br>
+        <label for="">Nationality</label>
+        <input type="text" name="nationality"><br><br>
+        <input type="submit" name="submit" value="submit"><br><br>
+    </form><h2>HTML Table</h2>
+    <table>
+        <tr>
+            <th>SL</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Occupation</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Nationality</th>
+            <th>Action</th>
+        </tr>
+        #those data is coming from database
+        {% for i in about_d %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td> {{i.Name}}</td>
+            <td>{{i.Age}}</td>
+            <td>{{i.Occupation}}</td>
+            <td>{{i.Phone}}</td>
+            <td>{{i.Email}}</td>
+            <td>{{i.Nationality}}</td>
+            <td><a href="{% url 'about_edit' i.id %}">Edit</a><br><br> 
+                <a href="{% url 'about_delete' i.id %}">Delete</a></td>
+
+        </tr>
+        {% endfor %}
+
+      </table>
+    </body>
+
+
+
+</html>

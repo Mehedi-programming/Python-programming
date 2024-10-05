@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './asset/css/about.css' %}">
+</head>
+<body>
+    <h1>About Information Tittle</h1>
+    <form action="{% url 'about_insert' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="">Tittle</label>
+        <input type="text" name="tittle"><br><br>
+        <label for="">Description</label>
+        <input type="text" name="description"><br><br>
+        <label for="">Name</label>
+        <input type="text" name="name"><br><br>
+        <label for="">Age</label>
+        <input type="text" name="age"><br><br>
+        <label for="">Occupation</label>
+        <input type="text" name="occupation"><br><br>
+        <label for="">Phone</label>
+        <input type="number" name="phone"><br><br>
+        <label for="">Email</label>
+        <input type="email" name="email"><br><br>
+        <label for="">Nationality</label>
+        <input type="text" name="nationality"><br><br>
+        <label for="">Image</label>
+        <input type="file" name="img"><br><br>
+        <input type="submit" name="submit" value="submit"><br><br>
+    </form><h2>HTML Table</h2>
+    <table>
+        <tr>
+            <th>SL</th>
+            <th>Tittle</th>
+            <th>Description</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Occupation</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Nationality</th>
+            <th>Image</th>
+        </tr>
+        {% for i in about_d %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td> {{i.Tittle}}</td>
+            <td>{{i.Description}}</td>
+            <td>{{i.Name}}</td>
+            <td>{{i.Age}}</td>
+            <td>{{i.Occupation}}</td>
+            <td>{{i.Phone}}</td>
+            <td>{{i.Email}}</td>
+            <td>{{i.Nationality}}</td>
+            <td>{{i.Image}}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    </body>
+
+
+
+</html>

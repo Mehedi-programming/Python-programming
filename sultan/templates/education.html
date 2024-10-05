@@ -1,0 +1,46 @@
+<html lang="en"></html>
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './asset/css/about.css' %}">
+</head>
+<body>
+    <h1>Education Information Tittle</h1>
+    <form action="{% url 'education_insert' %}" method="POST">
+        {% csrf_token %}
+        <label for="">Degree_department</label>
+        <input type="text" name="degree_department"><br><br>
+        <label for="">Institute</label>
+        <input type="text" name="institute"><br><br>
+        <label for="">Session</label>
+        <input type="text" name="session"><br><br>
+        <label for="">Description</label>
+        <input type="text" name="description"><br><br>
+        <input type="submit" name="submit" value="submit"><br><br>
+    </form><h2>HTML Table</h2>
+    <table>
+        <tr>
+            <th>SL</th>
+            <th>Degree_department</th>
+            <th>Institute</th>
+            <th>Session</th>
+            <th>Description</th>
+        </tr>
+        {% for i in education_d %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.Degree_department}}</td>
+            <td>{{i.Institute}}</td>
+            <td>{{i.Session}}</td>
+            <td>{{i.Description}}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    </body>
+
+
+
+</html>

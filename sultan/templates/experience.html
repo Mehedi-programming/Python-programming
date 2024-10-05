@@ -1,0 +1,46 @@
+<html lang="en"></html>
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './asset/css/about.css' %}">
+</head>
+<body>
+    <h1>Experience Information</h1>
+    <form action="{% url 'experience_insert' %}" method="POST">
+        {% csrf_token %}
+        <label for="">Position</label>
+        <input type="text" name="position"><br><br>
+        <label for="">Company_name</label>
+        <input type="text" name="company_name"><br><br>
+        <label for="">Time</label>
+        <input type="text" name="time"><br><br>
+        <label for="">Representation</label>
+        <input type="text" name="representation"><br><br>
+        <input type="submit" name="submit" value="submit"><br><br>
+    </form><h2>HTML Table</h2>
+    <table>
+        <tr>
+            <th>SL</th>
+            <th>Position</th>
+            <th>Company_name</th>
+            <th>Time</th>
+            <th>Representation</th>
+        </tr>
+        {% for i in experience_d %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.Position}}</td>
+            <td>{{i.Company_name}}</td>
+            <td>{{i.Time}}</td>
+            <td>{{i.Representation}}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    </body>
+
+
+
+</html>

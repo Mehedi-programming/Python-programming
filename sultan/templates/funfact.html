@@ -1,0 +1,55 @@
+<html lang="en"></html>
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './asset/css/about.css' %}">
+</head>
+<body>
+    <h1>FUN FACT Information</h1>
+    <form action="{% url 'funfact_insert' %}" method="POST">
+        {% csrf_token %}
+        <label for="">Tittle</label>
+        <input type="text" name="tittle"><br><br>
+        <label for="">Description</label>
+        <input type="text" name="description"><br><br>
+        <label for="">Experience_year</label>
+        <input type="text" name="experience_year"><br><br>
+        <label for="">Client_count</label>
+        <input type="text" name="client_count"><br><br>
+        <label for="">Project_count</label>
+        <input type="text" name="project_count"><br><br>
+        <label for="">Digital_products</label>
+        <input type="text" name="digital_products"><br><br>
+        <input type="submit" name="submit" value="submit"><br><br>
+    </form><h2>HTML Table</h2>
+    <table>
+        <tr>
+            <th>SL</th>
+            <th>Tittle</th>
+            <th>Description</th>
+            <th>Experience_year</th>
+            <th>Client_count</th>
+            <th>Project_count</th>
+            <th>Digital_products</th>
+        </tr>
+        {% for i in funfact_d %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td> {{i.Tittle}}</td>
+            <td>{{i.Description}}</td>
+            <td>{{i.Experience_year}}</td>
+            <td>{{i.Client_count}}</td>
+            <td>{{i.Project_count}}</td>
+            <td>{{i.Digital_products}}</td>
+
+        </tr>
+        {% endfor %}
+
+      </table>
+    </body>
+
+
+
+</html>

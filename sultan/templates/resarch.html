@@ -1,0 +1,42 @@
+<html lang="en"></html>
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './asset/css/about.css' %}">
+</head>
+<body>
+    <h1>Resarch Information</h1>
+    <form action="{% url 'resarch_insert' %}" method="POST">
+        {% csrf_token %}
+        <label for="">Resarch_name</label>
+        <input type="text" name="resarch_name"><br><br>
+        <label for="">Description</label>
+        <input type="text" name="description"><br><br>
+        <label for="">Time</label>
+        <input type="text" name="time"><br><br>
+        <input type="submit" name="submit" value="submit"><br><br>
+    </form><h2>HTML Table</h2>
+    <table>
+        <tr>
+            <th>SL</th>
+            <th>Resarch_name</th>
+            <th>Description</th>
+            <th>Time</th>
+        </tr>
+        {% for i in resarch_d %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.Resarch_name}}</td>
+            <td>{{i.Description}}</td>
+            <td>{{i.Time}}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    </body>
+
+
+
+</html>

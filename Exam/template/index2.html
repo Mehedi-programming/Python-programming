@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lange="'en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewsport" content="width device,initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="{% static 'assets/css/about.css' %}">
+
+    </head>
+    <body>
+        <h1>About Information Tittle</h1>
+        <form action="{% url 'about_insert' %}" method="POST">
+            {% csrf_token %}
+            <label for="">name</label>
+            <input type="text" name="name"><br><br>
+            <label for="">Description</label>
+            <input type="text" name="desc"><br><br>
+            <label for="">phone</label>
+            <input type="text" name="phone"><br><br>
+            <label for="">email</label>
+            <input type="text" name="email"><br><br>
+            <label for="">fb</label>
+            <input type="text" name="fb"><br><br>
+            <label for="">github</label>
+            <input type="text" name="github"><br><br>
+            <label for="">gmail</label>
+            <input type="text" name="gmail"><br><br>
+            <input type="submit"><br><br>     
+      </form><h2>HTML Table</h2>
+       
+    </body>
+</html>
+ 

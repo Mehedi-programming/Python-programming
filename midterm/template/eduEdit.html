@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './asset/css/about.css' %}">
+</head>
+<body>
+    <h1>About Information Tittle</h1>
+    <form action="{% url 'education_update' %}" method="POST">
+        {% csrf_token %}
+        <label for="">Degree</label>
+        <input type="text" name="degree" value="{{d.Degree}}"><br><br>
+        <input type="hidden" value="{{d.id}}" name="id">
+        <label for="">Institute</label>
+        <input type="text" name="Institute" value="{{d.Institute}}"><br><br>
+        <label for="">Session</label>
+        <input type="text" name="session" value="{{d.Session}}"><br><br>
+        <label for="">Description</label>
+        <input type="text" name="description" value="{{d.Description}}"><br><br>
+        <label for="">Result</label>
+        <input type="text" name="result" value="{{d.Result}}"><br><br>
+        <input type="submit" name="submit" value="Edit"><br><br>
+    </form>

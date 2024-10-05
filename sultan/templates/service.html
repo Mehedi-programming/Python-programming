@@ -1,0 +1,39 @@
+<html lang="en"></html>
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './asset/css/about.css' %}">
+</head>
+<body>
+    <h1>Service Information </h1>
+    <form action="{% url 'service_insert' %}" method="POST">
+        {% csrf_token %}
+        <label for="">Tittle_1_web</label>
+        <input type="text" name="tittle1web"><br><br>
+        <label for="">Tittle2_security</label>
+        <input type="text" name="tittle2security"><br><br>
+        <input type="submit" name="submit" value="submit"><br><br>
+    </form><h2>HTML Table</h2>
+    <table>
+        <tr>
+            <th>SL</th>
+            <th>Tittle_1_web</th>
+            <th>Tittle2_security</th>
+        </tr>
+        {% for i in service_d %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td> {{i.Tittle_1_web}}</td>
+            <td>{{i.Tittle2_security}}</td>
+
+        </tr>
+        {% endfor %}
+
+      </table>
+    </body>
+
+
+
+</html>

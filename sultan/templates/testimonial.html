@@ -1,0 +1,51 @@
+<html lang="en"></html>
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './asset/css/about.css' %}">
+</head>
+<body>
+    <h1>Testimonial(skill) Information</h1>
+    <form action="{% url 'testimonial_insert' %}" method="POST">
+        {% csrf_token %}
+        <label for="">Tittle</label>
+        <input type="text" name="tittle"><br><br>
+        <label for="">Description</label>
+        <input type="text" name="description"><br><br>
+        <label for="">Client_name</label>
+        <input type="text" name="client_name"><br><br>
+        <label for="">Company_name</label>
+        <input type="text" name="company_name"><br><br>
+        <label for="">Articles</label>
+        <input type="text" name="articles"><br><br>
+        <input type="submit" name="submit" value="submit"><br><br>
+    </form><h2>HTML Table</h2>
+    <table>
+        <tr>
+            <th>SL</th>
+            <th>Tittle</th>
+            <th>Description</th>
+            <th>Client_name</th>
+            <th>Company_name</th>
+            <th>Articles</th>
+        </tr>
+        {% for i in testimonial_d %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td> {{i.Tittle}}</td>
+            <td>{{i.Description}}</td>
+            <td>{{i.Client_name}}</td>
+            <td>{{i.Company_name}}</td>
+            <td>{{i.Articles}}</td>
+
+        </tr>
+        {% endfor %}
+
+      </table>
+    </body>
+
+
+
+</html>
